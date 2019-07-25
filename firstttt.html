@@ -1,42 +1,91 @@
 <DOCTYPE:html>
 
-<h2>Just for fun</h2>
+<head>
+	<!-- https://learn.freecodecamp.org/responsive-web-design/basic-css/understand-absolute-versus-relative-units/ -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+	<style>
+		h2 {
+			font-family: Lobster, monospace;
+			font-size: 50px;
+			color:#F50;
+		}
+
+		h4 {
+			font-family: monospace;
+			font-size: 20px;
+			text-align: justify;
+			padding: 0.5em;
+			background-color: rgba(45, 45, 45, 0.1)
+
+		}
+
+		p {
+			text-align: justify;
+		}
+
+		.thin-blue-border {
+		    border-color: blue;
+		    border-width: 5px;
+		    border-style: dashed;
+		    border-radius: 30%;	
+		}
+
+		 .box {
+		    border-style: solid;
+		    border-color: #A30;
+		    border-width: 0.5em;
+		    text-align: center;
+		 }
+
+	</style>
+</head>
+
+<h2 class="box">Just for fun</h2>
+
+
 
 <main>
-<p>
-Hi there! This webpage is for basic parts I've learned about html
-</p>
-<div>
-	<p>
-		lorem ipsum text
-	</p>
-</div>
-<img src="https://avatars1.githubusercontent.com/u/32931891?s=60&v=4" alt="My github icon looks like this.">
-<br><a href="https://github.com/robinlxz/Web_exercise"> This is link to the repo. </a>
+	<div>
+		<p>
+		Hi there! This webpage is for basic parts I've learned about html
+		</p>
+	</div>
+	<div>
+		<p>
+			lorem ipsum text
+		</p>
+	</div>
+	<img class="thin-blue-border" width=100px src="https://avatars1.githubusercontent.com/u/32931891?s=60&v=4" alt="My github icon looks like this.">
+	<br><a href="https://github.com/robinlxz/Web_exercise"> This is link to the repo. </a>
 
-<div> <!-- 20190724 -->
-	<p>
-		<b>Some current priorities</b>
-		<ol>
-			<li>Finish all Problem Sets in OCW6.00! Code is by self-learning.</li>
-			<li>Able to handle MongoDB + SQL needs and incidents</li>
-			<li>A prototype webpage for Job Finder</li>
-			<li>Need Django for above one</li>
-		</ol>
+	<div> <!-- 20190724 -->
+		<p>
+			<hr>
+			<h4>Some current priorities</h4>
+			<ol>
+				<li>Finish all Problem Sets in OCW6.00! Code is by self-learning.</li>
+				<li>Able to handle MongoDB + SQL needs and incidents</li>
+				<li>A prototype webpage for Job Finder</li>
+				<li>Need Django for above one</li>
+			</ol>
 
-		<b>Some ultimate goals</b> (bucket list?):
-		<ul>* Super healthy, climbing and running for same level at 60.</ul>
-		<ul>* Family member never worry about basic needs.</ul>
-		<ul>* Build an indie game, have it published somewhere like Kongregate.</ul>
-		<ul>* Finish a Marathon by running most of the distance.</ul>
-		<ul>* Visit best friends one time every 10 years. Some are really far away...</ul>
-		<ul style="color: orange">To Be Continued</ul>
-	</p>
-	<h4>
-		<form action="/submit-current-goal">
-			<input type="text" placeholder="What is your main focus for today?">
-			<button type="submit">Submit</button>
-		</form>
-	</h4>
+			<hr>
+			<h4>Some ultimate goals (bucket list?)</h4> 
+			<em>
+				<ul>* Super healthy, climbing and running for same level at 60.</ul>
+				<ul>* Family member never worry about basic needs.</ul>
+				<ul>* Build an indie game, have it published somewhere like Kongregate.</ul>
+				<ul>* Finish a Marathon by running most of the distance.</ul>
+				<ul>* Visit best friends one time every 10 years. Some are really far away...</ul>
+				<ul style="color: orange">To Be Continued</ul>
+			</em>
+			<hr>
+		<h4>
+			<form action="/submit-current-goal">
+				<input type="text" placeholder="What is your main focus for today?">
+				<button type="submit">Submit</button>
+			</form>
+		</h4>
 
-</div>
+	</div>
+</main>
