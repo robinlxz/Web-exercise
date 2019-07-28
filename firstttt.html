@@ -1,18 +1,23 @@
 <DOCTYPE:html>
 
+<html>
+
 <head>
 	<!-- https://learn.freecodecamp.org/responsive-web-design/basic-css/understand-absolute-versus-relative-units/ -->
+	<title>xz's test page</title>
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 	<style>
 		h2 {
 			font-family: Lobster, monospace;
-			font-size: 50px;
+			font-size: 40px;
 			color:#F50;
+			position: relative;
+			top: 5px;
 		}
 
 		h4 {
 			font-family: monospace;
-			font-size: 20px;
+			font-size: 25px;
 			text-align: justify;
 			padding: 0.5em;
 			background-color: rgba(45, 45, 45, 0.1)
@@ -21,10 +26,11 @@
 
 		p {
 			text-align: justify;
+			/*font-size: 18px*/
 		}
 
-		.thin-blue-border {
-		    border-color: blue;
+		.thin-orange-border {
+		    border-color: #F50;
 		    border-width: 5px;
 		    border-style: dashed;
 		    border-radius: 30%;	
@@ -33,59 +39,117 @@
 		 .box {
 		    border-style: solid;
 		    border-color: #A30;
-		    border-width: 0.5em;
+		    border-width: 0.02em;
+		    padding: 0.2em;
+		    background-color: #98D588;
 		    text-align: center;
+		    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 		 }
 
+		 #goals-form {
+		 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+		 	font-size: 20px;
+		 	background: linear-gradient(35deg, #CCFFFF, #FFFFCC, #CCCCFF);
+		 }
+
+		 #to-be-con{
+		 	position: relative;
+		 	top: 30px;
+		 }
+
+		 .fullCard {
+		    width: 545px;
+		    border: 1px dashed #ccc;
+		    border-radius: 5%;
+		    margin: 10px 5px;
+		    padding: 1em;
+		    /*Below is a nice way to put the box in middle!*/
+			/*position: absolute;*/
+			/*top: 100px;*/
+			/*bottom: -550px;*/
+			left: 0;
+			right: 0;		  	
+			margin: auto;
+		 }
+
+		 a:hover {
+		 	color:blue;
+		 }
 	</style>
+
+	<script defer type="text/javascript"></script>
 </head>
 
-<h2 class="box">Just for fun</h2>
+<header>
+	<h2 class="box">Just for fun</h2>
+</header>
 
+<body>
 
 
 <main>
-	<div>
-		<p>
-		Hi there! This webpage is for basic parts I've learned about html
-		</p>
-	</div>
-	<div>
-		<p>
-			lorem ipsum text
-		</p>
-	</div>
-	<img class="thin-blue-border" width=100px src="https://avatars1.githubusercontent.com/u/32931891?s=60&v=4" alt="My github icon looks like this.">
-	<br><a href="https://github.com/robinlxz/Web_exercise"> This is link to the repo. </a>
+	<div class="fullCard">
+		<div>
+			<p>
+			Hi there! This webpage is for basic parts I've learned about html
+			</p>
+		</div>
+		<div  style="visibility: hidden">
+			<p>
+				lorem ipsum text
+			</p>
+		</div>
+		<img class="thin-orange-border" width=100px src="https://avatars1.githubusercontent.com/u/32931891?s=60&v=4" alt="My github icon looks like this." style = "display: block; margin-left: auto; margin-right: auto">
+		<div style="text-align: center;">
+			<br><a href="https://github.com/robinlxz/Web_exercise"> This is link to the repo. </a>
+		</div>
 
-	<div> <!-- 20190724 -->
-		<p>
-			<hr>
-			<h4>Some current priorities</h4>
-			<ol>
-				<li>Finish all Problem Sets in OCW6.00! Code is by self-learning.</li>
-				<li>Able to handle MongoDB + SQL needs and incidents</li>
-				<li>A prototype webpage for Job Finder</li>
-				<li>Need Django for above one</li>
-			</ol>
+		<div> <!-- 20190724 -->
+			<form id="goals-form">
+				<!-- <hr> -->
+				<h4>Some current priorities</h4>
+				<p style="font-family: Helvetica, sans-serif">
+					<ul>1. Finish all Problem Sets in <strong>OCW6.00</strong>! Code is by self-learning.</ul>
+					<ul>2. Able to handle MongoDB + SQL needs and incidents</ul>
+					<ul>3. A prototype webpage for our project <em>"Job Finder"</em></ul>
+					<ul>4. Need Django for above one</ul>
+				</p>
 
-			<hr>
-			<h4>Some ultimate goals (bucket list?)</h4> 
-			<em>
-				<ul>* Super healthy, climbing and running for same level at 60.</ul>
-				<ul>* Family member never worry about basic needs.</ul>
-				<ul>* Build an indie game, have it published somewhere like Kongregate.</ul>
-				<ul>* Finish a Marathon by running most of the distance.</ul>
-				<ul>* Visit best friends one time every 10 years. Some are really far away...</ul>
-				<ul style="color: orange">To Be Continued</ul>
-			</em>
-			<hr>
-		<h4>
-			<form action="/submit-current-goal">
-				<input type="text" placeholder="What is your main focus for today?">
-				<button type="submit">Submit</button>
+				<!-- <hr> -->
+				<h4>Some ultimate goals (bucket list?)</h4> 
+				<p style="font-family: Helvetica, sans-serif">
+					<ul>* Super healthy, climbing and running for same level at 60.</ul>
+					<ul>* Family member never worry about basic needs.</ul>
+					<ul>* Build an indie game, have it published somewhere like Kongregate.</ul>
+					<ul>* Finish a Marathon by running most of the distance.</ul>
+					<ul>* Visit best friends one time every 10 years. Some are really far away...</ul>
+					<ul style="color: orange" id=to-be-con>To Be Continued</ul>
+				</p>
+				<!-- <hr> -->
+				<div style="padding: 2em;">
+					<!-- <form action="/submit-current-goal"> -->
+					<form action="#">	
+						<input type="text" placeholder="What is your main focus for today?">
+						<button type="submit">Submit</button>
+					</form>
+				</div>
 			</form>
-		</h4>
-
+		</div>
+		<div style="float:right">
+			<p> I'm a float to the right.</p>
+		</div>
 	</div>
+<!-- 	<div>
+		<p>Table test</p>
+		<table>
+			<th>My purpose</th>
+			<tr>Be stronger</tr>
+			<td>This is th1</td>
+			<tr>Be more energetic</tr>
+			<td>This is td2</td>
+		</table>
+	</div> -->
 </main>
+</body>
+
+</html>
