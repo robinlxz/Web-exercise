@@ -7,21 +7,19 @@
 	<title>xz's test page</title>
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 	<style>
-		h2 {
+		h1 {
 			font-family: Lobster, monospace;
 			font-size: 40px;
-			color:#F50;
 			position: relative;
 			top: 5px;
 		}
 
-		h4 {
+		h2 {
 			font-family: monospace;
 			font-size: 25px;
 			text-align: justify;
 			padding: 0.5em;
-			background-color: rgba(45, 45, 45, 0.1)
-
+			background-color: rgba(45, 45, 45, 0.1);
 		}
 
 		p {
@@ -37,6 +35,7 @@
 		}
 
 		 .box {
+		 	width: 100%;
 		    border-style: solid;
 		    border-color: #A30;
 		    border-width: 0.02em;
@@ -75,16 +74,106 @@
 		 a:hover {
 		 	color:blue;
 		 }
+
+		 #just_for_fun {
+		 	transform: scale(1.1);
+		 	animation-name: greenOrangeGreen;
+		 	animation-duration: 20s;
+		 	animation-fill-mode: forwards;
+		 	animation-iteration-count: infinite;
+		 }
+
+		 @keyframes greenOrangeGreen {
+		 	0%{
+		 		color:#98D588;
+		 		/*left: -2000px;*/
+		 	}
+		 	50%{
+		 		color:#F50;
+		 		/*left: 100px;*/
+		 	}
+		 	100%{color:#98D588;}
+		 }
+
+		 img:hover{
+		 	transform: ;
+		 	transform: rotate(45deg) scale(0.7);
+		 	/*transform: skewX(-45deg);
+		 	transform: skewY(-45deg);*/
+		 }
+
+		.heart {
+		  position: relative;
+		  margin: auto;
+		  top: 0.5em;
+		  right: 0;
+		  bottom: 0;
+		  left: 0;
+		  background-color: pink;
+		  height: 25px;
+		  width: 25px;
+		  transform: rotate(-45deg);
+		  animation-name: heart-beat;
+		  animation-duration: 1s;
+		  animation-iteration-count: 2000;
+		}
+		.heart::after {
+		  background-color: pink;
+		  content: "";
+		  border-radius: 50%;
+		  position: absolute;
+		  width: 25px;
+		  height: 25px;
+		  top: 0px;
+		  left: 12.5px;
+		}
+		.heart::before {
+		  content: '';
+		  background-color: pink;
+		  border-radius: 50%;
+		  position: absolute;
+		  width: 25px;
+		  height: 25px;
+		  top: -12.5px;
+		  left: 0px;
+		}
+
+		@keyframes heart-beat {
+			30% {
+				transform: scale(0.8) rotate(-45deg);
+			}
+		}
+
+		  button {
+		    border-radius: 5px;
+		    color: white;
+		    background-color: #0F5897;
+		    padding: 5px 10px 8px 10px;
+		  }
+		  
+		  button:hover {
+		    animation-name: background-color;
+		    animation-duration: 500ms;
+		    animation-fill-mode: forwards;
+		  }
+		  
+		  @keyframes background-color{
+		    100% {
+		      background-color: #4791d0;
+		    }
+		  }
+
+
 	</style>
 
 	<script defer type="text/javascript"></script>
 </head>
 
-<header>
-	<h2 class="box">Just for fun</h2>
-</header>
-
 <body>
+
+<header>
+	<h1 class="box" id="just_for_fun" >Just for fun</h1>
+</header>
 
 
 <main>
@@ -94,12 +183,15 @@
 			Hi there! This webpage is for basic parts I've learned about html
 			</p>
 		</div>
+		<nav>
+			<li><a href="#goals-form">Core list</a></li>
+		</nav>
 		<div  style="visibility: hidden">
 			<p>
 				lorem ipsum text
 			</p>
 		</div>
-		<img class="thin-orange-border" width=100px src="https://avatars1.githubusercontent.com/u/32931891?s=60&v=4" alt="My github icon looks like this." style = "display: block; margin-left: auto; margin-right: auto">
+		<img class="thin-orange-border" width=150px src="https://avatars1.githubusercontent.com/u/32931891?s=60&v=4" alt="My github icon." style = "display: block; margin-left: auto; margin-right: auto">
 		<div style="text-align: center;">
 			<br><a href="https://github.com/robinlxz/Web_exercise"> This is link to the repo. </a>
 		</div>
@@ -107,49 +199,47 @@
 		<div> <!-- 20190724 -->
 			<form id="goals-form">
 				<!-- <hr> -->
-				<h4>Some current priorities</h4>
-				<p style="font-family: Helvetica, sans-serif">
-					<ul>1. Finish all Problem Sets in <strong>OCW6.00</strong>! Code is by self-learning.</ul>
-					<ul>2. Able to handle MongoDB + SQL needs and incidents</ul>
-					<ul>3. A prototype webpage for our project <em>"Job Finder"</em></ul>
-					<ul>4. Need Django for above one</ul>
-				</p>
+				<fieldset>
+					<legend><h2 tabindex="0">Current priorities</h2></legend>
+					<p style="font-family: Helvetica, sans-serif">
+						<ul>0. Go through freeCodeCamp in 2 months, means 20 'coding challenges' each day.</ul>
+						<ul>1. Finish all Problem Sets in <strong>OCW6.00</strong>! Code is by self-learning.</ul>
+						<ul>2. Able to handle MongoDB + SQL needs and incidents</ul>
+						<ul>3. A prototype webpage for our project <em>"Job Finder"</em></ul>
+						<ul>4. Need Django for above one</ul>
+					</p>
+				</fieldset>
 
 				<!-- <hr> -->
-				<h4>Some ultimate goals (bucket list?)</h4> 
-				<p style="font-family: Helvetica, sans-serif">
-					<ul>* Super healthy, climbing and running for same level at 60.</ul>
-					<ul>* Family member never worry about basic needs.</ul>
-					<ul>* Build an indie game, have it published somewhere like Kongregate.</ul>
-					<ul>* Finish a Marathon by running most of the distance.</ul>
-					<ul>* Visit best friends one time every 10 years. Some are really far away...</ul>
-					<ul style="color: orange" id=to-be-con>To Be Continued</ul>
-				</p>
+				<fieldset>
+					<legend><h2 tabindex="0">Ultimate goals (bucket list?)</h2> </legend>
+					<p style="font-family: Helvetica, sans-serif">
+						<ul>* Super healthy, climbing and running for same level at 60.</ul>
+						<ul>* Family member never worry about basic needs.</ul>
+						<ul>* Build an indie game, have it published somewhere like Kongregate.</ul>
+						<ul>* Finish a Marathon by running most of the distance.</ul>
+						<ul>* Visit best friends one time every 10 years. Some are really far away...</ul>
+						<ul style="color: orange" id=to-be-con>To Be Continued</ul>
+					</p>
+				</fieldset>
 				<!-- <hr> -->
 				<div style="padding: 2em;">
 					<!-- <form action="/submit-current-goal"> -->
 					<form action="#">	
 						<input type="text" placeholder="What is your main focus for today?">
-						<button type="submit">Submit</button>
+						<button>Submit</button>
 					</form>
 				</div>
 			</form>
 		</div>
-		<div style="float:right">
+<!-- 		<div style="float:right">
 			<p> I'm a float to the right.</p>
-		</div>
+		</div> -->
+		<div class="heart"></div>
 	</div>
-<!-- 	<div>
-		<p>Table test</p>
-		<table>
-			<th>My purpose</th>
-			<tr>Be stronger</tr>
-			<td>This is th1</td>
-			<tr>Be more energetic</tr>
-			<td>This is td2</td>
-		</table>
-	</div> -->
+
 </main>
+<footer style="text-align: center;">&copy; 2019.7 lxz</footer>
 </body>
 
 </html>
