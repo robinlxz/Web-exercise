@@ -36,9 +36,6 @@ qingLuan.equipment.weapon = "needle";
 console.log(qingLuan);
 
 
-// Beijing Fengtai district Xin Cun street Yin Di Jia Yuan Block C-34 #05-101
-// She is my relative who comes Singapore for sightseeing.
-
 
 
 
