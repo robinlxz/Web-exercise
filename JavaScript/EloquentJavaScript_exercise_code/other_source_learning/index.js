@@ -169,25 +169,46 @@ function compareRobots(robot1, memory1, robot2, memory2) {
 
 compareRobots(routeRobot, [], goalOrientedRobot, []);
 
-// Ex2, yourRobot
+// // Ex2, yourRobot
 function yourRobot({place, parcels}, route) {
-  let remainingParcels = parcels.filter(p => Object.keys(p) != place);
-  if (remainingParcels.length > 0){
-    console.log(remainingParcels.length);
-    let parcel = remainingParcels[0];
-    if (parcel.place != place) {
-      route = findRoute(roadGraph, place, parcel.place);
-    } else {
-      route = findRoute(roadGraph, place, parcel.address);
-    }
+  /*
+  Overall:
+  1. Robot collect all parcels
+  2. Robot deliver all parcels
+  */
+  let remainingParcels = parcels.filter(p => p.place != place);
+  console.log(remainingParcels);
+  let TargetParcel;
+  if (remainingParcels.length >0) {
+    TargetParcel = remainingParcels[0];
+    route = findRoute(roadGraph, place, TargetParcel.place);
+  }  
+  else {
+    TargetParcel = parcels[0];
+    route = findRoute(roadGraph, place, TargetParcel.address);
   }
-  else{
-    let parcel = parcels[0];
-    if (parcel.place != place) {
-      route = findRoute(roadGraph, place, parcel.place);
-    } else {
-      route = findRoute(roadGraph, place, parcel.address);
-    }
-  }
+  
   return {direction: route[0], memory: route.slice(1)};
 }
+
+//runRobot(VillageState.random(1),yourRobot, [])
+compareRobots(yourRobot, [], goalOrientedRobot, []);
+// 13.6, 14.68 //Yes!!
+
+// // Ex2 prepare
+// // Write a state.filter() to filter out all current parcels based on place.
+// let testParcels = [
+//   {place: "Farm", address: "Bob's House"},
+//   {place: "Daria's House", address: "Shop"},
+//   {place: "Alice's House", address: "Ernie's House"},
+//   {place: "Alice's House", address: "Post Office"},
+//   {place: "Town Hall", address: "Daria's House"}
+// ]
+
+// function filterParcelsByPlace(parcels, place){
+//   //return the parcels that not at current place
+//   return parcels.filter((a)=>a.place != place)
+// }
+
+
+//Ex 3
