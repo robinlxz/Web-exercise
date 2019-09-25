@@ -212,3 +212,30 @@ compareRobots(yourRobot, [], goalOrientedRobot, []);
 
 
 //Ex 3
+class PGroup {
+  // Your code here
+  constructor(members){
+    this.members = members;
+  } 
+  
+  add(item){
+  	if(!this.has(item)){
+    	return new PGroup(this.members.push(item));
+    }
+    else{return new PGroup(this.members)}
+  }
+  
+  delete(item){
+    if(this.has(item)){
+      return new PGroup(this.members.filter(x=>x!=item));
+    }
+    else{return new PGroup(this.members)}
+  }
+
+  has(item){
+    return this.members.includes(item);
+  }
+  
+}
+
+PGroup.empty = new PGroup([]);
