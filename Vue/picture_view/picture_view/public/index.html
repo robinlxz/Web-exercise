@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>picture_view</title>
+  </head>
+  <body>
+    <!-- <h1>Hello?</h1>
+    <noscript>
+      <strong>We're sorry but picture_view doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div> -->
+    
+    <div id="app">
+        <h1>vue-my-photos Demo</h1>
+        <div id="filters">
+          <form><fieldset>
+            <legend>Filter</legend>
+            <span>
+              <input type="radio" id="all" 
+                name="filters" checked
+                v-on:click="updateFilter('all')"/>
+              <label for="all">All</label>
+            </span>
+            <span>
+              <input type="radio" id="animals"
+                  name="filters" 
+                  v-on:click="updateFilter('animals')"/>
+              <label for="animals">Animals</label>
+            </span>
+            <span>
+              <input type="radio" id="natue" 
+                 name="filters" 
+                 v-on:click="updateFilter('nature')" />
+              <label for="nature">Nature</label>
+            </span>
+          </fieldset></form>
+        </div>
+      
+        <transition-group name="thumbnailfade" tag="div">
+          <img v-for="thumb in filteredImages" 
+               :key="thumb.id" 
+               @click="showLightbox(thumb.name)"  
+               :src="thumbnailDir + thumb.name" 
+               :alt="thumb.alt" 
+               :title="thumb.alt" />
+        </transition-group>
+        
+        <lightbox id="mylightbox" 
+            ref="lightbox"
+            :images="images"
+            :directory="thumbnailDir"
+            :filter="galleryFilter"
+            :timeoutDuration="5000"
+        />
+      </div>
+      
+  </body>
+</html>
