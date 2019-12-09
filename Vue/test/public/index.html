@@ -11,7 +11,14 @@
     <div class="nav-bar"></div>
 
     <div id="app">
-        <dish v-bind:Childpremium="Parentpremium" ></dish>
+        <Dish v-on:add-to-cart="updateCart" @clear-cart="clearCart"></Dish>
+        <div class="cart">
+                <p>Cart({{cart.length}})</p>
+        </div>
+    </div>
+    <div>
+        <h3>Because this div is not a Vue object in main.js, {{}} not works as is not the syntax for variables out side of v-html</h3>
+        <h3>Cart is {{cart}}</h3>
     </div>
 
     <div id="lxzapp"></div>

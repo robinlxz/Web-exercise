@@ -231,6 +231,7 @@
 					</form>
 				</div>
 			</form>
+			<button>Test Get User</button>
 		</div>
 <!-- 		<div style="float:right">
 			<p> I'm a float to the right.</p>
@@ -240,6 +241,24 @@
 
 </main>
 <footer style="text-align: center;">&copy; 2019.7 lxz</footer>
+
+<script type="text/javascript">
+	document.querySelector('button').addEventListener('click', getUsers);
+
+	function getUsers(){
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'https://api.github.com/users', true);
+
+		xhr.onload = function(){
+			if(this.status == 200){
+				console.log('Users returned');
+			}
+		}
+	}
+
+	localStorage.setItem('name', 'Jonh');
+	document.cookie = "username = John Doe"
+</script>
 </body>
 
 </html>
