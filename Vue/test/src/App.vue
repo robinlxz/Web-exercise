@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <img alt="SingCafe logo" src="https://image.shutterstock.com/image-vector/capital-s-letter-inserted-paper-260nw-717507451.jpg">
-    <HelloWorld msg="Welcome to SingCafe"/>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-// import FoodPics from './components/FoodPics.vue'
 
 export default {
-  name: 'app2',
+  name: 'app',
   components: {
     HelloWorld
   }

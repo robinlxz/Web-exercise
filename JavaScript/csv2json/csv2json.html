@@ -5,20 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>csv2json</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="filedrop-min.js"></script>
   <script src="papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <h4>CSV to JSON</h4>
-  <textarea id="dropCSV" cols="30" rows="10" readonly>
-    Drop CSV file here
-  </textarea>
-  <br>
-  <label for="hasHeaders">CSV has Headers: (always checked in code)<input type="checkbox" id="hasHeaders"></label>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <div class="card">
+          <div class="card-body">
+            <p class="lead">CSV to JSON</p>
+            <textarea id="dropCSV" cols="30" rows="5" readonly>
+              Drop CSV file here
+            </textarea>
+            <label for="hasHeaders">CSV has Headers:<input type="checkbox" id="hasHeaders" checked></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
   <hr>
-  <textarea id="jsonoutput" cols="100" rows="50">
-    JSON will show up here
-  </textarea>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <div class="card">
+          <div class="card-body">
+            <textarea id="jsonoutput" cols="30" rows="5">
+              JSON will show up here
+            </textarea>
+            <br>
+            <!-- <button id="save-btn">Save Text file</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 
@@ -46,8 +73,8 @@
 function createJSON(str) {
   dropzone.el.value = str;
   let config = {
-    // header:cbHeaders.checked
-    header:1
+    header:cbHeaders.checked
+    // header:1
   };
   let jsonObject = Papa.parse(str,config).data;
   let jsonString = JSON.stringify(jsonObject);
@@ -64,6 +91,12 @@ function createJSON(str) {
 }
 
 
+// $("#save-btn").click(function() {
+//   var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+//   saveAs(blob, "testfile1.txt");
+// });
+
 
   
 </script>
+
