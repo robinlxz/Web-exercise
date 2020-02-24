@@ -77,8 +77,8 @@ function createJSON(str) {
     // header:1
   };
   let jsonObject = Papa.parse(str,config).data;
-  let jsonString = JSON.stringify(jsonObject);
-  let jsonStringFormatted = jsonString.replace(/{/g,"\n\t{").replace("]","\n]");
+  // let jsonString = JSON.stringify(jsonObject);
+  // let jsonStringFormatted = jsonString.replace(/{/g,"\n\t{").replace("]","\n]");
 
   let transifyJson = {};
   for (let row in jsonObject) {
