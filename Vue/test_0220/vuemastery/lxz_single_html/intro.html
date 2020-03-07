@@ -10,7 +10,7 @@
   
   <div class="nav-bar"></div>
 
-  <div id="app">
+  <!-- <div id="app">
     <div class="product">
       <div class="product-image">
         <img v-bind:src="image">
@@ -19,8 +19,6 @@
         <h1>{{title}}</h1>
         <h3>Here are some products: {{product}}</h3>
         <a v-bind:href="link">a link</a>
-        <!-- <p v-if="inventory = 0">Out of Stock</p> -->
-        <!-- <p v-if="!inStock" v-bind:class="{lineThrough: !inStock}">Out of Stock</p> -->
         <p v-show="onSale">On Sale!</p>
         <ul>
           <li v-for="item in details">{{item}}</li>
@@ -41,9 +39,16 @@
         </div>
       </div>
     </div>    
+  </div> -->
+
+  <div id="app">
+    <product></product>
+    <product></product>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="main.js"></script>
 </body>
 </html>
+
+file:///Users/linxz/Documents/GitHub/Web_exercise/Vue/test_0220/vuemastery/lxz_single_html/intro.html####
