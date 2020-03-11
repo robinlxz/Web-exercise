@@ -10,45 +10,15 @@
   
   <div class="nav-bar"></div>
 
-  <!-- <div id="app">
-    <div class="product">
-      <div class="product-image">
-        <img v-bind:src="image">
-      </div>
-      <div class="product-info">
-        <h1>{{title}}</h1>
-        <h3>Here are some products: {{product}}</h3>
-        <a v-bind:href="link">a link</a>
-        <p v-show="onSale">On Sale!</p>
-        <ul>
-          <li v-for="item in details">{{item}}</li>
-        </ul>
-        <div v-for="(vari, index) in variants" 
-             v-bind:key="vari.variantId"
-             class = "color-box"
-             v-bind:style="{backgroundColor: vari.variantColor }"
-             v-on:mouseOver="updateProduct(index)"
-             >
-        </div>
-        <button v-on:click="addToCart"       
-                v-bind:class="{disabledButton: !inStock}"
-                v-bind:disabled=!inStock>Add to Cart</button>
-        <button v-on:click="removeFromCart" v-if="cart > 0">Remove from Cart</button>
-        <div class="cart">
-          <p>Cart: ({{cart}})</p>
-        </div>
-      </div>
-    </div>    
-  </div> -->
-
   <div id="app">
-    <product></product>
-    <product></product>
+    
+    <product :userpremium="premium"></product>
+   
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
 
-file:///Users/linxz/Documents/GitHub/Web_exercise/Vue/test_0220/vuemastery/lxz_single_html/intro.html####
