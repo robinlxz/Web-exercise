@@ -1,3 +1,7 @@
+var eventBus = new Vue({
+
+})
+
 Vue.component('product-review', {
   template: `
   <div>
@@ -42,12 +46,13 @@ Vue.component('product-review', {
           review: this.review,
           rating: this.rating
         };
-        this.$emit('submit-review', productReview)
+        eventBus.$emit('submit-review', productReview)
         this.name = null;
         this.review = null;
         this.rating = null;
       }
       else {
+        this.errors = [];
         if (!this.name) {this.errors.push('Name required.')}
         if (!this.review) {this.errors.push('Review required.')}
         if (!this.rating) {this.errors.push('Rating required.')}
@@ -83,8 +88,7 @@ Vue.component('product-tab', {
       </ul>
     </div>
 
-    <product-review 
-      @submit-review="collectReview"
+    <product-review       
       v-show="selectedTab === 'Write a Review'"
     ></product-review>
   </div>
@@ -134,9 +138,6 @@ Vue.component('product', {
         <p v-else-if="inventory > 0">Almost Sold Out</p>
         <p v-else>Out of Stock</p>
         <p>Shipping: {{shipping}}</p>
-        <ul>
-          <li v-for="property in properties">{{property}}</li>
-        </ul>
         <product-detail v-bind:details="properties"></product-detail>
         <div v-for="(variant, index) in variants" :key="variant.variantID"
             class="color-box" 
@@ -187,9 +188,6 @@ Vue.component('product', {
     },
     updateProduct(index) {
       this.selectedVariant = index
-    },
-    collectReview(submittedReview) {
-      this.productReviews.push(submittedReview);
     }
   },
   computed: {
@@ -210,6 +208,11 @@ Vue.component('product', {
       if (this.premium) {return 'Free'}
       else {return '2.99'}
     }
+  },
+  mounted() {
+    eventBus.$on('submit-review', submittedReview => {
+      this.productReviews.push(submittedReview);
+    })
   }
 })
 
