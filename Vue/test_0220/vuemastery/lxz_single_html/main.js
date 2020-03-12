@@ -1,3 +1,43 @@
+//not working
+
+Vue.component('product-review', {
+  template: `
+    <form action="" class="review-form" @submit.prevent="collectReview">
+      <p>
+        <label for="name">Name</label>
+        <input type="text" v-model="oneReview.testname" required>
+      </p>
+      <p>
+        <label for="review">Review</label>
+        <input type="text" v-model="oneReview.testreview" required>
+      </p>
+      <button >Submit</button>
+    </form>
+  `,
+  data() {
+    return {
+      oneReview: {
+        testname: null,
+        testreview: null
+      }
+    }
+  },
+  methods: {
+    collectReview() {
+      if (this.oneReview.testname && this.oneReview.testreview) {
+        console.log(this.oneReview);
+        console.log(this.oneReview.testname);
+        console.log(this.oneReview.testreview);
+        console.log('oneReview');
+        this.$emit('submit-review', this.oneReview);
+      }
+      else {console.log('not enough info')}
+      this.oneReview.testname = null;
+      this.oneReview.testreview = null;
+    }
+  }
+})
+
 Vue.component('product', {
   props: {
     userpremium: {
@@ -36,9 +76,7 @@ Vue.component('product', {
         :disabled="inventory==0"
         :class="{disabledButton: inventory==0}"
         >Add to Cart</button>
-      <div class="cart">
-        <p>Cart {{ cart }}</p>
-      </div>
+
       <p>User is premium: {{userpremium}}</p>
     </div>
   `,
@@ -60,7 +98,7 @@ Vue.component('product', {
           variantID: 1235,
           variantColor: 'blue',
           variantImage: './assets/vmSocks-blue-onWhite.jpg',
-          variantInventory: 0
+          variantInventory: 3
         }
       ],
       selectedVariant: 0,
@@ -69,7 +107,8 @@ Vue.component('product', {
   },
   methods: {
     updateCart() {
-      this.cart += 1;
+      // this.cart += 1;
+      this.$emit('add-to-cart',this.variants[this.selectedVariant].variantID);
       this.variants[this.selectedVariant].variantInventory -= 1;
     },
     updateProduct(index) {
@@ -90,6 +129,18 @@ Vue.component('product', {
 var app = new Vue ({
   el: '#app',
   data: {
-    premium: true
+    premium: true,
+    cart: [],
+    reviews: []
+  },
+  methods: {
+    updateCart(item) {
+      this.cart.push(item);
+    },
+    saveReview(submittedreview) {
+      console.log(JSON.stringify(submittedreview));
+      let new_obj = { ...submittedreview};
+      this.reviews.push(new_obj);
+    }
   }
 })
