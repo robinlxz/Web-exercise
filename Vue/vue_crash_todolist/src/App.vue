@@ -1,53 +1,66 @@
 <template>
   <div id="app">
     <Header />
-    <AddTodo v-on:add-todo="addTodo"/>
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/>
-    <lxzTest />
+    <Todosss :todos="todos" @app-delete-todo="appDeleteTodo"/>
+    <AddTodo @add-new-todo="addTodo"/>
   </div>
 </template>
 
 <script>
-import AddTodo from './components/AddTodo';
+// import uuid from 'uuid';
+import {v4 as uuidv4 } from 'uuid';
+import Todosss from './components/Todos';
 import Header from './components/layout/Header';
-import Todos from './components/Todos';
-import lxzTest from './components/lxzTest';
+import AddTodo from './components/AddTodo';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
+    Todosss,
     Header,
-    Todos,
-    AddTodo,
-    lxzTest
+    AddTodo
   },
+  created: function() {
+    console.log(uuidv4())
+  },
+  // created() {
+  //   console.log(this)
+  // },
   data() {
     return {
       todos: [
         {
           id: 1,
-          title: "Vue.js Crash course",
+          title: "Vue Mastery Course",
           completed: false
         },
         {
           id: 2,
-          title: "Vue.js official intro",
+          title: "Django API integration",
           completed: false
         },
         {
           id: 3,
-          title: "Django",
-          completed: false
+          title: "Introduction to Computer Science and Programming",
+          completed: true
         }
       ]
     }
   },
   methods: {
-    deleteTodo(id) {
-      this.todos = this.todos.filter((x) => x.id!==id);
+    appDeleteTodo(todoID) {
+      this.todos = this.todos.filter((todo)=>{return todo.id!==todoID});
+      console.log(this.todos)
+      console.log(todoID, "at App.vue")
     },
-    addTodo(newTodo) {
-      this.todos = [...this.todos, newTodo];
+    addTodo(content) {
+      const newTodo = {
+        // id: this.todos.length + 1,
+        id: uuidv4(),
+        title: content,
+        completed: false
+      };
+      this.todos.push(newTodo)
     }
   }
 }
