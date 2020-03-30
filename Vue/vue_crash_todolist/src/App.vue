@@ -7,8 +7,7 @@
 </template>
 
 <script>
-// import uuid from 'uuid';
-import {v4 as uuidv4 } from 'uuid';
+// import {v4 as uuidv4 } from 'uuid';
 import Todosss from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
@@ -19,9 +18,6 @@ export default {
     Todosss,
     Header,
     AddTodo
-  },
-  created: function() {
-    console.log(uuidv4())
   },
   // created() {
   //   console.log(this)
@@ -50,17 +46,12 @@ export default {
   methods: {
     appDeleteTodo(todoID) {
       this.todos = this.todos.filter((todo)=>{return todo.id!==todoID});
-      console.log(this.todos)
-      console.log(todoID, "at App.vue")
+      // console.log(this.todos)
+      // console.log(todoID, "at App.vue")
     },
-    addTodo(content) {
-      const newTodo = {
-        // id: this.todos.length + 1,
-        id: uuidv4(),
-        title: content,
-        completed: false
-      };
-      this.todos.push(newTodo)
+    addTodo(newTodo) {
+      // this.todos.push(newTodo);
+      this.todos = [...this.todos, newTodo];
     }
   }
 }

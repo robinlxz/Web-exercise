@@ -1,4 +1,6 @@
 .DS_Store
+*/.DS_Store
+*/*/.DS_Store
 personal.txt
 JavaScript/.DS_Store
 Vue/*/package-lock.json
