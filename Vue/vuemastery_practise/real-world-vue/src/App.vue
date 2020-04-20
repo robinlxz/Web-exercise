@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <NavBar/>
+    <NavBar />
     <router-view />
   </div>
 </template>
 
 <script>
 // import EventCard from './components/EventCard'
-import NavBar from './components/NavBar'
+import NavBar from '@/components/NavBar';
 export default {
+  name: 'APP',
   components: {
     NavBar
   }
-}
+};
 </script>
 
 <style>
